@@ -1,0 +1,5 @@
+[tagpr]
+tagPrefix = "app1/"
+vPrefix = true
+releaseBranch = main
+changelogFile = CHANGELOG.md
