@@ -1,5 +1,5 @@
 [tagpr]
-tagPrefix = "app3/modules/network/"
+tagPrefix = app3/modules/network/
 vPrefix = true
 releaseBranch = main
-changelogFile = app3/modules/network/CHANGELOG.md
+changelogFile = CHANGELOG.md
