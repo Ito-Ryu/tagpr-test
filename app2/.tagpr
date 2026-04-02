@@ -2,4 +2,4 @@
 tagPrefix = app2/
 vPrefix = true
 releaseBranch = main
-changelogFile = CHANGELOG.md
+changelogFile = app2/CHANGELOG.md
