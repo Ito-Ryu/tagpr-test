@@ -7,6 +7,14 @@ on:
 jobs:
   tagpr:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module:
+          - app1
+          - app2
+          - app3/modules/compute_engine
+          - app3/modules/network
+      max-parallel: 1
     permissions:
       contents: read # For checkout a private repository
     steps:
@@ -29,3 +37,4 @@ jobs:
         uses: Songmu/tagpr@b3fb89424646b06c8aa460f50307c60b6a541425 # v1.17.1
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          TAGPR_CONFIG: ${{ matrix.module }}/.tagpr
