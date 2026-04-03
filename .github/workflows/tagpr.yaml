@@ -14,13 +14,45 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
+        with:
+          dir_names: true
+          dir_names_max_depth: 3
 
       - name: Find tagpr modules
         id: set-modules
         run: |
-          MODULES=$(find . -mindepth 2 -name ".tagpr" -exec dirname {} \; | sed 's|^\./||' | jq -R -s -c 'split("\n")[:-1]')
-          echo "Found modules: ${MODULES}"
-          echo "modules=${MODULES}" >> $GITHUB_OUTPUT
+          # 1. 変更があったディレクトリ一覧を取得
+          CHANGED_DIRS="${{ steps.changed-files.outputs.all_changed_files }}"
+          
+          # 2. リポジトリ内のすべての .tagpr ファイルを持つディレクトリを取得
+          ALL_MODULES=$(find . -mindepth 2 -name ".tagpr" -exec dirname {} \; | sed 's|^\./||')
+          
+          MODULES_JSON="[]"
+          FILTERED_MODULES=""
+          
+          if [ -n "$ALL_MODULES" ] && [ -n "$CHANGED_DIRS" ]; then
+            # 3. .tagpr を持つディレクトリのうち、変更があったディレクトリのパスと合致するものを抽出
+            for MODULE in $ALL_MODULES; do
+              for CHANGED in $CHANGED_DIRS; do
+                if [[ "$CHANGED" == "$MODULE"* ]] || [[ "$MODULE" == "$CHANGED"* ]]; then
+                  FILTERED_MODULES="$FILTERED_MODULES\n$MODULE"
+                  break
+                fi
+              done
+            done
+            
+            if [ -n "$FILTERED_MODULES" ]; then
+              MODULES_JSON=$(echo -e "$FILTERED_MODULES" | sed '/^$/d' | sort -u | jq -R -s -c 'split("\n")[:-1]')
+            fi
+          fi
+          
+          echo "Found modules: ${MODULES_JSON}"
+          echo "modules=${MODULES_JSON}" >> $GITHUB_OUTPUT
 
   tagpr:
     needs: setup-matrix
