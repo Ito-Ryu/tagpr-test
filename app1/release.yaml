@@ -1,20 +1,8 @@
 changelog:
   categories:
-    - title: 💥 Breaking Changes
+    - title: What's Changed
       labels:
-        - major
-    - title: 🚀 Features
-      labels:
-        - minor
-    - title: 🐛 Bug Fixes
-      labels:
-        - bug
-    - title: 🧰 Changes
-      labels:
-        - app1
+        - "app1"
   exclude:
     labels:
       - tagpr
-      - app2
-      - app3/modules/compute_engine
-      - app3/modules/network
