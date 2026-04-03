@@ -1,6 +1,6 @@
 [tagpr]
-  releaseBranch = main
-  versionFile = -
-  vPrefix = true
-  tagPrefix = app3/modules/compute_engine/
-  changelogFile = app3/modules/compute_engine/CHANGELOG.md
+    tagPrefix = app3/modules/compute_engine/
+    vPrefix = true
+    releaseBranch = main
+    changelogFile = app3/modules/compute_engine/CHANGELOG.md
+    releaseYAMLPath = app3/modules/compute_engine/release.yml

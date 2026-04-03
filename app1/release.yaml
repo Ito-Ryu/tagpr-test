@@ -1,0 +1,8 @@
+changelog:
+  categories:
+    - title: What's Changed
+      labels:
+        - "app1"
+  exclude:
+    labels:
+      - tagpr

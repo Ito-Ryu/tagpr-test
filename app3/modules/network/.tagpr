@@ -1,6 +1,7 @@
 [tagpr]
-  releaseBranch = main
-  versionFile = -
-  vPrefix = true
-  tagPrefix = app3/modules/network/
-  changelogFile = app3/modules/network/CHANGELOG.md
+    releaseBranch = main
+    versionFile = -
+    vPrefix = true
+    tagPrefix = app3/modules/network/
+    changelogFile = app3/modules/network/CHANGELOG.md
+    releaseYAMLPath = app3/modules/network/release.yaml
