@@ -27,3 +27,4 @@ module "network" {
 | project_id | The ID of the Google Cloud project. | `string` | n/a | yes |
 | vpc_network_name | The name of the VPC network. | `string` | n/a | yes |
 | subnets | The list of subnets to be created. | `list(object)` | `[]` | no |
+
