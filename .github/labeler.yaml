@@ -1,0 +1,15 @@
+app1:
+  - changed-files:
+      - any-glob-to-any-file: 'app1/**'
+
+app2:
+  - changed-files:
+      - any-glob-to-any-file: 'app2/**'
+
+app3/modules/compute_engine:
+  - changed-files:
+      - any-glob-to-any-file: 'app3/modules/compute_engine/**'
+
+app3/modules/network:
+  - changed-files:
+      - any-glob-to-any-file: 'app3/modules/network/**'
