@@ -5,15 +5,30 @@ on:
       - main
 
 jobs:
+  setup-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      modules: ${{ steps.set-modules.outputs.modules }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Find tagpr modules
+        id: set-modules
+        run: |
+          MODULES=$(find . -mindepth 2 -name ".tagpr" -exec dirname {} \; | sed 's|^\./||' | jq -R -s -c 'split("\n")[:-1]')
+          echo "Found modules: ${MODULES}"
+          echo "modules=${MODULES}" >> $GITHUB_OUTPUT
+
   tagpr:
+    needs: setup-matrix
+    if: ${{ needs.setup-matrix.outputs.modules != '[]' && needs.setup-matrix.outputs.modules != '' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        module:
-          - app1
-          - app2
-          - app3/modules/compute_engine
-          - app3/modules/network
+        module: ${{ fromJson(needs.setup-matrix.outputs.modules) }}
       max-parallel: 1
     steps:
       - name: Create Github App token
