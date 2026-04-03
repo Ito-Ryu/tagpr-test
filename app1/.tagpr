@@ -2,6 +2,6 @@
     releaseBranch = main
     versionFile = -
     vPrefix = true
-    tagPrefix = app1/
+    tagPrefix = app1
     changelogFile = app1/CHANGELOG.md
     releaseYAMLPath = app1/release.yaml
