@@ -82,7 +82,7 @@ jobs:
       
       - name: Run tagpr
         id: tagpr
-        uses: Songmu/tagpr@b3fb89424646b06c8aa460f50307c60b6a541425 # v1.17.1
+        uses: Ito-Ryu/tagpr@fix/tagpr-monorepo # 修正を加えたブランチを指定
         with:
           config: ${{ matrix.module }}/.tagpr
         env:
