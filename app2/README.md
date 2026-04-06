@@ -1,3 +1,4 @@
 # App2
 
-## v0.1.0　に変更
+## Minor (first-parent 追加前)
+label を `minor` 
