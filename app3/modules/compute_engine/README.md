@@ -34,3 +34,6 @@ module "compute_engine" {
 | disk_name | The name of the external disk. | `string` | n/a | yes |
 | disk_size_gb | The size of the disk in GB. | `number` | `10` | no |
 | snapshot_name | The name of the snapshot for the disk. | `string` | n/a | yes |
+
+## Minor (first-parent 追加前)
+label を `minor`
