@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.0.1](https://github.com/Ito-Ryu/tagpr-test/compare/app1/v1.0.0...app1/v1.0.1) - 2026-04-10
+### Changes
+- test!: major version (app1) by @Ito-Ryu in https://github.com/Ito-Ryu/tagpr-test/pull/47
+
 ## [v1.0.0](https://github.com/Ito-Ryu/tagpr-test/compare/app1/v0.0.1...app1/v1.0.0) - 2026-04-10
 ### Changes
 - test: test app1 major label by @Ito-Ryu in https://github.com/Ito-Ryu/tagpr-test/pull/24
