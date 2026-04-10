@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.0.3](https://github.com/Ito-Ryu/tagpr-test/compare/app3/modules/compute_engine/v0.0.2...app3/modules/compute_engine/v0.0.3) - 2026-04-10
+### Changes
+- test!: minor version (app3) by @Ito-Ryu in https://github.com/Ito-Ryu/tagpr-test/pull/49
+
 ## [v0.0.2](https://github.com/Ito-Ryu/tagpr-test/compare/app3/modules/compute_engine/v0.0.1...app3/modules/compute_engine/v0.0.2) - 2026-04-09
 ### Changes
 - fix: release.yaml for label (major, minor) by @Ito-Ryu in https://github.com/Ito-Ryu/tagpr-test/pull/26
